@@ -14,3 +14,5 @@ Pense q habia que entregar solo mockups, asi que toco rushear, sorry si se ve ho
 - Add student to course
 - Remove student from course
 - Take attendance by course
+## Contratos API
+[API Contracts PDF](other_file.md)
