@@ -72,6 +72,72 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/teacher/menu',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'TeacherMenu',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/TeacherMenu.vue'),
+      },
+    ],
+  },
+  {
+    path: '/teacher/courses/add',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'AddCourse',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/AddCourse.vue'),
+      },
+    ],
+  },
+  {
+    path: '/teacher/courses/remove',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'RemoveCourse',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/RemoveCourse.vue'),
+      },
+    ],
+  },
+  {
+    path: '/teacher/courses/assistance',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'TakeAssistance',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/TakeAssistance.vue'),
+      },
+    ],
+  },
+  {
+    path: '/teacher/courses/students/add',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'AddStudentToCourse',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/AddStudentToCourse.vue'),
+      },
+    ],
+  },
+  {
+    path: '/teacher/courses/students/remove',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'RemoveStudentFromCourse',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/RemoveStudentFromCourse.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

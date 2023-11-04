@@ -32,11 +32,11 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 function signin() {
-  router.push({ name: 'Home' });
+  router.push({ name: 'SignIn' });
 }
 
 function login() {
-  router.push({ name: 'Home' });
+  router.push({ name: 'LogIn' });
 }
 </script>
 
