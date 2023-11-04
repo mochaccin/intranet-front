@@ -15,4 +15,4 @@ Pense q habia que entregar solo mockups, asi que toco rushear, sorry si se ve ho
 - Remove student from course
 - Take attendance by course
 ## Contratos API
-[API Contracts PDF](other_file.md)
+[API Contracts PDF](Contratos API Intranet.pdf)
