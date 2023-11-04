@@ -30,11 +30,11 @@ function removeCourse() {
     <v-container class="fill-height">
         <v-responsive class="align-center text-center fill-height">
             <div class="container">
-                <v-btn @click="addStudent()" class="mt-2 login-btn">Inscribir alumno en asignatura</v-btn>
-                <v-btn @click="removeStudent()" class="mt-2 login-btn">Desinscribir alumno en asignatura</v-btn>
-                <v-btn @click="takeAssistance()" class="mt-2 login-btn">Registrar Asistencia</v-btn>
-                <v-btn @click="addCourse()" class="mt-2 login-btn">Agregar Curso</v-btn>
-                <v-btn @click="removeCourse()" class="mt-2 login-btn">Eliminar Curso</v-btn>
+                <v-btn @click="addStudent()" class="mt-4 login-btn">Inscribir alumno en asignatura</v-btn>
+                <v-btn @click="removeStudent()" class="mt-4 login-btn">Desinscribir alumno en asignatura</v-btn>
+                <v-btn @click="takeAssistance()" class="mt-4 login-btn">Registrar Asistencia</v-btn>
+                <v-btn @click="addCourse()" class="mt-4 login-btn">Agregar Curso</v-btn>
+                <v-btn @click="removeCourse()" class="mt-4 login-btn">Eliminar Curso</v-btn>
             </div>
         </v-responsive>
     </v-container>

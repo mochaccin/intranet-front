@@ -138,6 +138,18 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/teacher/courses/:courseCode/assistance',
+    component: () => import('@/layouts/postlogin/PostLogin.vue'),
+    props: true,
+    children: [
+      {
+        path: '',
+        name: 'TakeCourseAssistance',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/TakeCourseAssistance.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({
