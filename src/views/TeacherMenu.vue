@@ -29,13 +29,17 @@ function removeCourse() {
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center text-center fill-height">
-            <div class="container">
-                <v-btn @click="addStudent()" class="mt-4 login-btn">Inscribir alumno en asignatura</v-btn>
-                <v-btn @click="removeStudent()" class="mt-4 login-btn">Desinscribir alumno en asignatura</v-btn>
-                <v-btn @click="takeAssistance()" class="mt-4 login-btn">Registrar Asistencia</v-btn>
-                <v-btn @click="addCourse()" class="mt-4 login-btn">Agregar Curso</v-btn>
-                <v-btn @click="removeCourse()" class="mt-4 login-btn">Eliminar Curso</v-btn>
-            </div>
+            <v-card class="container" variant="tonal" color="primary" elevation="3">
+                <v-btn @click="addStudent()" class="mt-4 login-btn" color="primary">Inscribir alumno en
+                    asignatura</v-btn>
+                <v-btn @click="removeStudent()" class="mt-4 login-btn" color="primary">Desinscribir
+                    alumno en asignatura</v-btn>
+                <v-btn @click="takeAssistance()" class="mt-4 login-btn" color="primary">Registrar
+                    Asistencia</v-btn>
+                <v-btn @click="addCourse()" class="mt-4 login-btn" color="primary">Agregar Curso</v-btn>
+                <v-btn @click="removeCourse()" class="mt-4 login-btn" color="primary">Eliminar
+                    Curso</v-btn>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
@@ -45,9 +49,7 @@ function removeCourse() {
     width: 1000px;
     height: 800px;
     border-radius: 20px;
-    background-color: #cee6fd;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,7 +60,11 @@ function removeCourse() {
     width: 500px;
     height: 70px;
     border-radius: 20px;
-    background-color: #00407b;
-    color: white;
+}
+
+.login-btn:hover {
+    background-color: transparent !important;
+    color: black !important;
+    border: 2px solid #1867C0 !important;
 }
 </style>

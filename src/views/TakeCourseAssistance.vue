@@ -50,7 +50,7 @@ const students = [
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height">
-            <div class="container">
+            <v-card class="container" variant="tonal" color="primary" elevation="3">
                 <v-for>
                     <h1> Tomar asistencia para la asignatura {{ courseCode }}</h1>
                     <div v-for="student in students" :key="student.dni">
@@ -64,16 +64,20 @@ const students = [
                         </ul>
                     </div>
                 </v-for>
-            </div>
+                <v-btn class="mt-8" color="primary">Registrar asistencia</v-btn>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
 
 <style scoped>
+ul {
+    list-style-type: none;
+}
+
 .container {
     width: 1000px;
     height: 800px;
-    background-color: #cee6fd;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

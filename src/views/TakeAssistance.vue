@@ -11,14 +11,14 @@ function takeAssistance() {
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height">
-            <div class="container">
+            <v-card class="container" variant="tonal" color="primary">
                 <h1>Tomar asistencia</h1>
                 <div class="py-3" />
                 <v-form class="form" fast-fail @submit.prevent="takeAssistance()">
                     <v-text-field v-model="courseCode" label="Codigo asignatura" :rules="courseCodeRules"></v-text-field>
-                    <v-btn type="submit" block class="mt-2">Tomar asistencia</v-btn>
+                    <v-btn type="submit" block class="mt-2" color="primary" height="50px">Tomar asistencia</v-btn>
                 </v-form>
-            </div>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
@@ -27,7 +27,6 @@ function takeAssistance() {
 .container {
     width: 1000px;
     height: 800px;
-    background-color: #cee6fd;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

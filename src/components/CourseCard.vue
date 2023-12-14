@@ -15,7 +15,7 @@ function courseDetails() {
 </script>
 
 <template>
-    <v-card class="mx-auto" max-width="400">
+    <v-card class="mx-auto" max-width="400" variant="tonal" color="primary" elevation="2" rounded="lg">
         <v-img class="align-end text-white" height="200" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover>
             <v-card-title>{{ courseName }}</v-card-title>
         </v-img>

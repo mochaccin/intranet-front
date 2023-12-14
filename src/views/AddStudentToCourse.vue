@@ -4,16 +4,16 @@
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height">
-            <div class="container">
+            <v-card class="container" variant="tonal" color="primary">
                 <h1>Inscribir alumno en asignatura</h1>
                 <div class="py-3" />
                 <v-form class="form" fast-fail @submit.prevent>
                     <v-text-field v-model="courseCode" label="Codigo asignatura" :rules="courseCodeRules"></v-text-field>
                     <v-text-field v-model="studentDni" label="DNI Estudiante" :rules="studentDniRules"></v-text-field>
 
-                    <v-btn type="submit" block class="mt-2">Inscribir</v-btn>
+                    <v-btn type="submit" block class="mt-2" color="primary" height="50px">Inscribir</v-btn>
                 </v-form>
-            </div>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
@@ -22,7 +22,6 @@
 .container {
     width: 1000px;
     height: 800px;
-    background-color: #cee6fd;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

@@ -11,15 +11,15 @@ const props = defineProps({
 </script>
 
 <template>
-    <v-card class="mx-auto card-wrapper">
+    <v-card class="mx-auto card-wrapper" variant="tonal" color="primary" elevation="1">
         <v-card-title>{{ studentName }}</v-card-title>
         <v-card-subtitle class="pt-4">
             {{ studentRut }}
         </v-card-subtitle>
 
         <v-card-actions class="align-center text-center justify-center">
-            <v-btn class="remove-btn" color="white" rounded="lg">
-                Desinscribir alumno
+            <v-btn class="remove-btn" variant="flat" color="primary" rounded="lg">
+                Desinscribir
             </v-btn>
         </v-card-actions>
     </v-card>
@@ -36,6 +36,6 @@ const props = defineProps({
 .remove-btn {
     position: absolute;
     right: 20px;
-    background-color: #00407b;
+    width: 140px;
 }
 </style>

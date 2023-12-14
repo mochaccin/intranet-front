@@ -44,12 +44,12 @@ const courses = [
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height">
-            <div class="container">
+            <v-card class="container" variant="tonal" color="primary">
                 <v-col v-for="course in courses" :key="course.courseCode" cols="1" sm="1">
                     <RemoveCourseCard :course-name="course.courseName" :course-code="course.courseCode" />
                 </v-col>
 
-            </div>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
@@ -58,7 +58,6 @@ const courses = [
 .container {
     width: 1000px;
     height: 800px;
-    background-color: #cee6fd;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

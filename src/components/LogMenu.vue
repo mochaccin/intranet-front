@@ -28,14 +28,14 @@ let subtext = "No tienes una cuenta? Registrate";
 
 if (props.option === 1) {
     btnText = "Registrarse";
-    subtext = "ya tienes una cuenta? Inicia sesion";
+    subtext = "Ya tienes una cuenta? Inicia sesion";
 }
 
 </script>
 
 <template>
-    <v-col cols="2" class="align-center justify-center">
-        <v-card text="" variant="tonal" class="login-card">
+    <v-col cols="2" class="align-center justify-center container">
+        <v-card text="" variant="tonal" class="login-card" color="primary">
             <div v-if="option === 1" class="py-6" />
             <div v-if="option != 1" class="py-14" />
             <v-form fast-fail @submit.prevent class="px-10">
@@ -50,8 +50,9 @@ if (props.option === 1) {
                 <v-btn @click="login()" block class="mt-2 login-btn">{{ btnText }}</v-btn>
             </v-form>
             <div class="py-2" />
-            <a @click="signin()" class="text-body-2 font-weight-light mb-n1 text-decoration-none text-black option">{{
-                subtext }}</a>
+            <a @click="signin()"
+                class="subtext text-body-2 font-weight-light mb-n1 text-decoration-none text-black option">{{
+                    subtext }}</a>
         </v-card>
     </v-col>
 </template>
@@ -60,22 +61,28 @@ if (props.option === 1) {
 .login-card {
     width: 400px;
     height: 500px;
-    background-color: #cee6fd;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .login-btn {
-    background-color: #00407b;
     color: white;
+    background-color: #00407b;
+    cursor: pointer;
 }
 
-.login-field {
-    background-color: #cee9fd;
-}
+.login-field {}
 
 .option {
     cursor: pointer;
+}
+
+.subtext {
+    cursor: pointer;
+}
+
+.container {
+    z-index: 60;
 }
 </style>
   

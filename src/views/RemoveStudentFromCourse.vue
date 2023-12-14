@@ -44,11 +44,11 @@ const students = [
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height">
-            <div class="container">
+            <v-card class="container" variant="tonal" color="primary">
                 <v-col v-for="student in students" :key="student.studentCode" cols="1" sm="1">
                     <RemoveStudentCard :student-name="student.name" :student-rut="student.dni" />
                 </v-col>
-            </div>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
@@ -57,7 +57,6 @@ const students = [
 .container {
     width: 1000px;
     height: 800px;
-    background-color: #cee6fd;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

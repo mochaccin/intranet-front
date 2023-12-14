@@ -63,9 +63,9 @@ function goBack() {
 <template>
     <v-container class="fill-height">
         <v-responsive class="align-center justify-center text-center fill-height fill-width">
-            <v-sheet :height="800" :width="1000" rounded="lg" class="sheet">
-                <div class="py-4" />
-                <v-table>
+            <v-card :height="800" :width="1000" rounded="lg" class="sheet" variant="tonal" color="primary" elevation="3">
+                <div class=" py-4" />
+                <v-table theme="primary">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -83,19 +83,13 @@ function goBack() {
                         </tr>
                     </tbody>
                 </v-table>
-                <v-btn class="btn" @click="goBack()">Volver a las asignaturas</v-btn>
-            </v-sheet>
+                <v-btn class="btn" height="40px" color="primary" @click="goBack()">Volver a las asignaturas</v-btn>
+            </v-card>
         </v-responsive>
     </v-container>
 </template>
 
 <style scoped>
-.sheet {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
 .btn {
     cursor: pointer;
 }
