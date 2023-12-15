@@ -1,7 +1,19 @@
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import { getCourseAttendances } from '@/services/courses.service';
 
 const router = useRouter();
+const route = useRoute();
+
+const studentAttendances = ref([]);
+
+onMounted(async () => {
+    const courseCode = route.params.courseCode;
+    const response = await getCourseAttendances(courseCode);
+    console.log(response);
+    studentAttendances.value = response;
+});
 
 let desserts = [
     {
