@@ -1,5 +1,21 @@
 <script setup>
 import CourseCard from '@/components/CourseCard.vue';
+import { onMounted, ref } from 'vue';
+import { getStudentCourses } from '@/services/courses.service';
+
+const studentCourses = ref([]);
+
+onMounted(() => {
+    getStudentCourses()
+        .then((response) => {
+            console.log(response.data);
+            studentCourses.value = response.data;
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
 
 const courses = [
     {

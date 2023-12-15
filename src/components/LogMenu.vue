@@ -1,7 +1,15 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
 
 import { userLogin } from '@/services/auth.service';
+import { setToken } from '@/services/helpers';
+import { registerUser } from '@/services/users.service';
+
+const name = ref('');
+const rut = ref('');
+const email = ref('');
+const password = ref('');
 
 const router = useRouter();
 
@@ -10,16 +18,48 @@ const props = defineProps({
 })
 
 const route = useRoute();
+let currentPath = route.path;
+
+onMounted(() => {
+    currentPath = route.path;
+    console.log(currentPath);
+});
 
 async function login() {
-    const currentPath = route.path;
-    console.log(currentPath);
-    const response = await userLogin();
-    console.log(response.data);
+    const response = await userLogin(email.value, password.value);
+
+    if(response.error) {
+        console.log(response.error);
+    } else {
+        setToken(response.token);
+
+        await router.push({ name: 'Home' });
+    }
+}
+
+async function register() {
+    const response = await registerUser(name.value, rut.value, email.value, password.value);
+
+    if(response.error) {
+        console.log(response.error);
+    } else {
+        setToken(response.token);
+
+        await router.push({ name: 'LogIn' });
+    }
+}
+
+function exec() {
+    if (currentPath === '/signin') {
+        register();
+    } else {
+        login();
+    }
+
 }
 
 function redirect() {
-    if (props.option === 1) {
+    if (currentPath === '/signin') {
         router.push({ name: 'LogIn' });
     } else {
         router.push({ name: 'SignIn' });
@@ -29,7 +69,7 @@ function redirect() {
 let btnText = "Iniciar sesion";
 let subtext = "No tienes una cuenta? Registrate";
 
-if (props.option === 1) {
+if (currentPath === '/signin') {
     btnText = "Registrarse";
     subtext = "Ya tienes una cuenta? Inicia sesion";
 }
@@ -39,19 +79,18 @@ if (props.option === 1) {
 <template>
     <v-col cols="2" class="align-center justify-center container">
         <v-card text="" variant="tonal" class="login-card" color="primary">
-            <div v-if="option === 1" class="py-6" />
-            <div v-if="option != 1" class="py-14" />
-            <v-form fast-fail @submit.prevent class="px-10">
-                <v-text-field v-if="option === 1" class="login-field" v-model="name" label="Nombre"
+            <div v-if="currentPath === '/signin'" class="py-6" />
+            <div v-if="currentPath != '/signin'" class="py-14" />
+            <v-form fast-fail @submit.prevent="exec" class="px-10">
+                <v-text-field v-if="currentPath === '/signin'" class="login-field" v-model="name" label="Nombre"
                     :rules="nameRules"></v-text-field>
-                <v-text-field class="login-field" v-model="rut" label="Rut" :rules="rutRules"></v-text-field>
-                <v-text-field v-if="option === 1" class="login-field" v-model="email" label="Correo"
-                    :rules="emailRules"></v-text-field>
+                <v-text-field v-if="currentPath === '/signin'" class="login-field" v-model="rut" label="Rut"
+                :rules="rutRules"></v-text-field>
+                <v-text-field class="login-field" v-model="email" label="Email" :rules="emailRules"></v-text-field>
                 <v-text-field class="login-field" v-model="password" label="Contraseña"
                     :rules="passwordRules"></v-text-field>
 
-                <v-btn v-if="option != 1" @click="login()" block class="mt-2 login-btn" height="40px">{{ btnText }}</v-btn>
-                <v-btn v-if="option === 1" @click="login()" block class="mt-2 login-btn" height="40px">{{ btnText }}</v-btn>
+                <v-btn @click="exec()" block class="mt-2 login-btn" height="40px">{{ btnText }}</v-btn>
             </v-form>
             <div class="py-2" />
             <a @click="redirect()"
