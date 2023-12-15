@@ -194,6 +194,42 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/settings",
+    component: () => import("@/layouts/postlogin/PostLogin.vue"),
+    children: [
+      {
+        path: "",
+        name: "SettingsMenu",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/SettingsMenu.vue"),
+      },
+    ],
+  },
+  {
+    path: "/settings/email",
+    component: () => import("@/layouts/postlogin/PostLogin.vue"),
+    children: [
+      {
+        path: "",
+        name: "ChangeEmail",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/ChangeEmail.vue"),
+      },
+    ],
+  },
+  {
+    path: "/settings/password",
+    component: () => import("@/layouts/postlogin/PostLogin.vue"),
+    children: [
+      {
+        path: "",
+        name: "ChangePassword",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/ChangePassword.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
