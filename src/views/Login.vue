@@ -1,5 +1,6 @@
 <script setup>
 import LogMenu from '@/components/LogMenu.vue'
+
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import LogMenu from '@/components/LogMenu.vue'
 
             <div class="py-3" />
             <v-row class="d-flex align-center justify-center">
-                <LogMenu />
+                <LogMenu :option="0" />
                 <v-img class="ufro-logo" height="300"
                     src="https://www.ufro.cl/index.php/normas-corporativas/31-logo-ufro-azul-vertical/file" />
             </v-row>

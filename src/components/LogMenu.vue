@@ -1,5 +1,7 @@
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+
+import { userLogin } from '@/services/auth.service';
 
 const router = useRouter();
 
@@ -7,15 +9,16 @@ const props = defineProps({
     option: Number
 })
 
-function login() {
-    if (props.option === 1) {
-        router.push({ name: 'Home' });
-    } else {
-        router.push({ name: 'Home' });
-    }
+const route = useRoute();
+
+async function login() {
+    const currentPath = route.path;
+    console.log(currentPath);
+    const response = await userLogin();
+    console.log(response.data);
 }
 
-function signin() {
+function redirect() {
     if (props.option === 1) {
         router.push({ name: 'LogIn' });
     } else {
@@ -47,10 +50,11 @@ if (props.option === 1) {
                 <v-text-field class="login-field" v-model="password" label="Contraseña"
                     :rules="passwordRules"></v-text-field>
 
-                <v-btn @click="login()" block class="mt-2 login-btn">{{ btnText }}</v-btn>
+                <v-btn v-if="option != 1" @click="login()" block class="mt-2 login-btn" height="40px">{{ btnText }}</v-btn>
+                <v-btn v-if="option === 1" @click="login()" block class="mt-2 login-btn" height="40px">{{ btnText }}</v-btn>
             </v-form>
             <div class="py-2" />
-            <a @click="signin()"
+            <a @click="redirect()"
                 class="subtext text-body-2 font-weight-light mb-n1 text-decoration-none text-black option">{{
                     subtext }}</a>
         </v-card>
@@ -85,4 +89,4 @@ if (props.option === 1) {
     z-index: 60;
 }
 </style>
-  
+  @/services/users.service
