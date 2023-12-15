@@ -8,7 +8,7 @@ function addStudent() {
 }
 
 function removeStudent() {
-    router.push({ name: 'RemoveStudentFromCourse' });
+    router.push({ name: 'TeacherCourses' });
 }
 
 function takeAssistance() {

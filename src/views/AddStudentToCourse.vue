@@ -1,4 +1,24 @@
 <script setup>
+import { addStudentToCourse } from '@/services/courses.service';
+import { ref } from 'vue';
+
+const courseCode = ref('');
+const studentDni = ref('');
+
+function addStudent() {
+
+    if (!courseCode.value || !studentDni.value) {
+        return;
+    }
+
+    const response = addStudentToCourse(courseCode.value, studentDni.value);
+
+    if (response.error) {
+        console.log(response.error);
+    } else {
+        console.log("Asignatura creada");
+    }
+}
 
 </script>
 
@@ -12,7 +32,8 @@
                     <v-text-field v-model="courseCode" label="Codigo asignatura" :rules="courseCodeRules"></v-text-field>
                     <v-text-field v-model="studentDni" label="DNI Estudiante" :rules="studentDniRules"></v-text-field>
 
-                    <v-btn type="submit" block class="mt-2" color="primary" height="50px">Inscribir</v-btn>
+                    <v-btn @click="addStudent()" type="submit" block class="mt-2" color="primary"
+                        height="50px">Inscribir</v-btn>
                 </v-form>
             </v-card>
         </v-responsive>

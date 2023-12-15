@@ -18,8 +18,6 @@ async function removeCourse() {
         isCourseDeleted.value = true;
     }
 }
-
-
 </script>
 
 <template>

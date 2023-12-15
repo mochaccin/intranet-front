@@ -36,7 +36,7 @@ async function login() {
     if (response.error) {
         console.log(response.error);
     } else {
-        setToken(response.token);
+        setToken(response.token, response.role);
 
         await router.push({ name: 'Home' });
     }

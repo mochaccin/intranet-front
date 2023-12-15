@@ -95,3 +95,64 @@ export async function deleteCourse(courseCode) {
       };
     });
 }
+
+export async function addStudentToCourse(courseCode, studentDni) {
+  return await axiosInstance
+    .patch(`/courses/students/add`, {
+      courseCode: courseCode,
+      studentDni: studentDni,
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      if (error.response.status === 403) {
+        removeToken();
+      }
+      return {
+        error: true,
+        name: error.response.data?.error?.name || "Error",
+        message: error.response.data?.error || "Error",
+      };
+    });
+}
+
+export async function removeStudentFromCourse(courseCode, studentDni) {
+  return await axiosInstance
+    .patch(`/courses/students/remove`, {
+      courseCode: courseCode,
+      studentDni: studentDni,
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      if (error.response.status === 403) {
+        removeToken();
+      }
+      return {
+        error: true,
+        name: error.response.data?.error?.name || "Error",
+        message: error.response.data?.error || "Error",
+      };
+    });
+}
+
+export async function getStudents(courseCode) {
+  console.log(courseCode);
+  return await axiosInstance
+    .get(`courses/${courseCode}/students`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      if (error.response.status === 403) {
+        removeToken();
+      }
+      return {
+        error: true,
+        name: error.response.data?.error?.name || "Error",
+        message: error.response.data?.error || "Error",
+      };
+    });
+}

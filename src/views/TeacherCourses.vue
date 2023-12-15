@@ -1,13 +1,13 @@
 <script setup>
 import CourseCard from '@/components/CourseCard.vue';
 import { onMounted, ref } from 'vue';
-import { getStudentCourses } from '@/services/courses.service';
+import { getTeacherCourses } from '@/services/courses.service';
 
-const studentCourses = ref([]);
+const teacherCourses = ref([]);
 
 onMounted(async () => {
-    const response = await getStudentCourses();
-    studentCourses.value = response.courses;
+    const response = await getTeacherCourses();
+    teacherCourses.value = response.courses;
 });
 
 </script>
@@ -17,8 +17,8 @@ onMounted(async () => {
         <v-responsive class="align-center text-center fill-height">
             <div class="py-3" />
             <v-row>
-                <v-col v-for="course in studentCourses" :key="course.courseCode" cols="3" sm="4">
-                    <CourseCard :course-name="course.courseName" :course-code="course.courseCode" :option="0" />
+                <v-col v-for="course in teacherCourses" :key="course.courseCode" cols="3" sm="4">
+                    <CourseCard :course-name="course.courseName" :course-code="course.courseCode" :option="1" />
                 </v-col>
             </v-row>
             <div class="py-1" />

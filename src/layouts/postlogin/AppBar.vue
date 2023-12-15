@@ -9,7 +9,7 @@
 
     <v-list density="compact" nav>
       <v-list-item prepend-icon="mdi-home" title="Home" value="home" to="/home"></v-list-item>
-      <v-list-item prepend-icon="mdi-notebook-multiple" title="Ver asignaturas" value="courses"
+      <v-list-item v-if="!isTeacher" prepend-icon="mdi-notebook-multiple" title="Ver asignaturas" value="courses"
         to="/courses"></v-list-item>
       <v-list-item prepend-icon="mdi-account-details" title="Menu profesor" value="details"
         to="/teacher/menu"></v-list-item>
@@ -19,5 +19,19 @@
 </template>
 
 <script setup>
-//
+import { getRole } from '@/services/helpers';
+import { ref, onMounted } from 'vue';
+
+const role = ref('');
+const isTeacher = ref(Boolean);
+
+onMounted(() => {
+  role.value = getRole();
+  if (role.value === 'teacher') {
+    isTeacher.value = true;
+  } else {
+    isTeacher.value = false;
+  }
+});
+
 </script>
