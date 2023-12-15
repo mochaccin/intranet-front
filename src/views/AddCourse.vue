@@ -1,4 +1,23 @@
 <script setup>
+import { createCourse } from '@/services/courses.service';
+import { ref } from 'vue';
+
+const courseName = ref('');
+const courseCode = ref('');
+
+function onSubmit() {
+    if (!courseName.value || !courseCode.value) {
+        return;
+    }
+
+    const response = createCourse(courseCode.value, courseName.value);
+
+    if (response.error) {
+        console.log(response.error);
+    } else {
+        console.log("Asignatura creada");
+    }
+}
 </script>
 
 <template>
@@ -11,9 +30,9 @@
                     <v-text-field v-model="courseName" label="Nombre asignatura" :rules="courseNameRules"></v-text-field>
 
                     <v-text-field v-model="courseCode" label="Codigo asignatura" :rules="courseCodeRules"></v-text-field>
-                    <v-text-field v-model="courseTeacher" label="DNI Profesor" :rules="courseTeacherRules"></v-text-field>
 
-                    <v-btn type="submit" block class="mt-2" color="primary" height="50px">Crear asignatura</v-btn>
+                    <v-btn @click="onSubmit()" type="submit" block class="mt-2" color="primary" height="50px">Crear
+                        asignatura</v-btn>
                 </v-form>
             </v-card>
         </v-responsive>

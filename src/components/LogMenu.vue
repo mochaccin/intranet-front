@@ -26,9 +26,14 @@ onMounted(() => {
 });
 
 async function login() {
+
+    if (!email.value || !password.value) {
+        return;
+    }
+
     const response = await userLogin(email.value, password.value);
 
-    if(response.error) {
+    if (response.error) {
         console.log(response.error);
     } else {
         setToken(response.token);
@@ -38,9 +43,14 @@ async function login() {
 }
 
 async function register() {
+
+    if (!email.value || !password.value || !name.value || !rut.value) {
+        return;
+    }
+
     const response = await registerUser(name.value, rut.value, email.value, password.value);
 
-    if(response.error) {
+    if (response.error) {
         console.log(response.error);
     } else {
         setToken(response.token);
@@ -85,7 +95,7 @@ if (props.option === 1) {
                 <v-text-field v-if="option === 1" class="login-field" v-model="name" label="Nombre"
                     :rules="nameRules"></v-text-field>
                 <v-text-field v-if="option === 1" class="login-field" v-model="rut" label="Rut"
-                :rules="rutRules"></v-text-field>
+                    :rules="rutRules"></v-text-field>
                 <v-text-field class="login-field" v-model="email" label="Email" :rules="emailRules"></v-text-field>
                 <v-text-field class="login-field" v-model="password" label="Contraseña"
                     :rules="passwordRules"></v-text-field>
