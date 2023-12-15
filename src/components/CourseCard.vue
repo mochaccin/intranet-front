@@ -6,7 +6,6 @@ const router = useRouter();
 const props = defineProps({
     courseName: String,
     courseCode: String,
-    courseImg: String,
 })
 
 function courseDetails() {

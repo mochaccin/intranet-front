@@ -69,7 +69,7 @@ function redirect() {
 let btnText = "Iniciar sesion";
 let subtext = "No tienes una cuenta? Registrate";
 
-if (currentPath === '/signin') {
+if (props.option === 1) {
     btnText = "Registrarse";
     subtext = "Ya tienes una cuenta? Inicia sesion";
 }
@@ -79,12 +79,12 @@ if (currentPath === '/signin') {
 <template>
     <v-col cols="2" class="align-center justify-center container">
         <v-card text="" variant="tonal" class="login-card" color="primary">
-            <div v-if="currentPath === '/signin'" class="py-6" />
-            <div v-if="currentPath != '/signin'" class="py-14" />
+            <div v-if="option === 1" class="py-6" />
+            <div v-if="option != 1" class="py-14" />
             <v-form fast-fail @submit.prevent="exec" class="px-10">
-                <v-text-field v-if="currentPath === '/signin'" class="login-field" v-model="name" label="Nombre"
+                <v-text-field v-if="option === 1" class="login-field" v-model="name" label="Nombre"
                     :rules="nameRules"></v-text-field>
-                <v-text-field v-if="currentPath === '/signin'" class="login-field" v-model="rut" label="Rut"
+                <v-text-field v-if="option === 1" class="login-field" v-model="rut" label="Rut"
                 :rules="rutRules"></v-text-field>
                 <v-text-field class="login-field" v-model="email" label="Email" :rules="emailRules"></v-text-field>
                 <v-text-field class="login-field" v-model="password" label="Contraseña"
