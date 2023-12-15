@@ -9,11 +9,13 @@
 
     <v-list density="compact" nav>
       <v-list-item prepend-icon="mdi-home" title="Home" value="home" to="/home"></v-list-item>
+      <v-list-item prepend-icon="mdi-account" title="Perfil" value="profile" to="/profile"></v-list-item>
       <v-list-item v-if="!isTeacher" prepend-icon="mdi-notebook-multiple" title="Ver asignaturas" value="courses"
         to="/courses"></v-list-item>
       <v-list-item v-if="isTeacher" prepend-icon="mdi-account-details" title="Menu profesor" value="details"
         to="/teacher/menu"></v-list-item>
-      <v-list-item prepend-icon="mdi-account" title="Perfil" value="profile" to="/profile"></v-list-item>
+      <v-list-item prepend-icon="mdi-account-cog" title="Configuracion de la cuenta" value="profilesettings"
+        to="/settings"></v-list-item>
       <v-list-item prepend-icon="mdi-logout" title="Cerrar sesion" value="config" to="/login"></v-list-item>
     </v-list>
   </v-navigation-drawer>
