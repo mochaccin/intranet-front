@@ -30,7 +30,7 @@ export async function userLogin(email, password) {
 
 export async function getMe() {
   return await axiosInstance
-    .get(`${BASE_URL}/me`)
+    .get("/auth/me")
     .then((response) => response.data)
     .catch((error) => {
       console.log(error);

@@ -182,6 +182,18 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/profile",
+    component: () => import("@/layouts/postlogin/PostLogin.vue"),
+    children: [
+      {
+        path: "",
+        name: "MyProfile",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/MyProfile.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
